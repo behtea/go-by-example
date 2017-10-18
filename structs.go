@@ -1,0 +1,32 @@
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+
+func changeName(p *person) {
+	p.name = "Pointer"
+}
+
+func main() {
+
+	fmt.Println(person{"Bob", 20})
+
+	fmt.Println(person{name: "Alice", age: 30})
+	fmt.Println(person{name: "Fred"})
+
+	s := person{name: "Sean", age: 50}
+	fmt.Println(s.name)
+	changeName(&s)
+	fmt.Println(s.name)
+
+	sp := &s
+	fmt.Println(sp.age)
+
+	sp.age = 51
+	fmt.Println(sp.name)
+	fmt.Println(sp.age)
+}
